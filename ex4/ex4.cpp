@@ -5,26 +5,17 @@ using namespace std;
 
 int main()
 {
-	vector <int> a = { -100,-50, -5, 1, 10, 15 };
-	int x;
-
+	vector <int> a = { -100,-50, -5, 1, 10, 150 };
+	int x = 0;
+	int y = a[0];
 	for (int i = 0; i < a.size(); ++i) {
-		for (int j = 1; j < a.size()-1; ++j) {
-			if (fabs(a[j]) > fabs(a[j + 1])) {
-				x = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = x;
-			}
-			if (fabs(a[j]) < fabs(a[j - 1])) {
-				x = a[j];
-				a[j] = a[j - 1];
-				a[j - 1] = x;
-			}
-		}
+		if (a[i] > 0 && a[i] < fabs(a[x])) x = i;
+		if (fabs(a[i]) > fabs(y)) y = a[i];
 	}
-
-	for (int i = 0; i < a.size(); ++i) {
-		cout << a[i] << ", ";
+	cout << a[x]<< ", ";
+	for (int i = 1; i < 3; ++i) {
+		fabs(a[x - i]) < fabs(a[x + i]) ? cout << a[x - i] << ", " << a[x + i] << ", " : cout << a[x + i] << ", " << a[x - i] << ", ";
 	}
+	cout << y;
 	return 0;
 }
