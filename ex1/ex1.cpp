@@ -14,7 +14,7 @@ int main() {
 
 	for (int i = 0; i < a.size(); ++i) {
 		current += a[i];
-		if (current > summ && i > start) {
+		if (current >= summ && i > start) {
 			summ = current;
 			y = i;
 			x = start;
