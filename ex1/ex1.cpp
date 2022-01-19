@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 
-	vector <int> a = { -2,1,-3,4,-1,2,1,-5,4 };
+	vector <int> a = { 1, 2, 100, -200, 300 };
 	int start = 0;
 	int current = 0;
 	int summ = a[0];
@@ -14,16 +14,15 @@ int main() {
 
 	for (int i = 0; i < a.size(); ++i) {
 		current += a[i];
-		if (current >= summ && i > start) {
+		if (current >= summ) {
 			summ = current;
 			y = i;
-			x = start;
-
+			x = a[i] == summ ? i : start;
 		}
-		if (i == a.size() - 1 ) {
+		if (i == a.size() - 1) {
 			++start;
-			i = start;
-			current = a[start];
+			i = start-1;
+			current = 0;
 		}
 	}
 
